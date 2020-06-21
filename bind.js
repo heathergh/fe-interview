@@ -29,3 +29,10 @@ function bind(fn, context) {
     fn.call(context)
   }
 }
+
+// another way to do it, if you want to pass arguments:
+function bind(fn, context) {
+  return function() {
+    fn.apply(context, [...arguments]);
+  }
+}
