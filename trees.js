@@ -6,20 +6,22 @@
 
 function reversePath(element, root) {
   const path = [];
-  let pointer = element;
+  let currentNode = element;
 
-  while (pointer.parent) {
+  while (currentNode.parentNode) {
     // gets first step in path
-    const index = pointer.parent.children.indexOf(pointer);
+    const index = [...currentNode.parentNode.children].indexOf(currentNode);
     path.push(index);
 
-    pointer = pointer.parent;
+    currentNode = currentNode.parentNode;
   }
 
-  pointer = root;
+  currentNode = root;
 
   while (path.length) {
     // goes back down tree
-    pointer = children[path.pop()];
+    currentNode = currentNode.children[path.pop()];
   }
+
+  return currentNode;
 }
