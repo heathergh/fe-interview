@@ -4,7 +4,7 @@
 function isStringPalindrome(word) {
   if (typeof(word) !== 'string') return;
 
-  const reversedWord = word.split('').reverse().join('');
+  const reversedWord = word.toLowerCase().split('').reverse().join('');
 
   if (word === reversedWord) {
     return true;
